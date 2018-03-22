@@ -88,7 +88,7 @@ public class End2EndTests {
 			defs.add(def);
 		}
 		tc.registerTaskDefs(defs);
-		List<TaskDef> found = tc.getTaskDef();
+		List<TaskDef> found = tc.getAllTaskDefs();
 		assertNotNull(found);
 		assertEquals(defs.size(), found.size());
 		
