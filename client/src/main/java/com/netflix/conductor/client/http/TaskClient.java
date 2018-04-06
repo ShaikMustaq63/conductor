@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2016 Netflix, Inc.
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -237,7 +237,6 @@ public class TaskClient extends ClientBase {
      *
      * @return List of all the task definitions registered with the server
      */
-
     public List<TaskDef> getTaskDef() {
         return getForEntity("metadata/taskdefs", null, taskDefList);
     }

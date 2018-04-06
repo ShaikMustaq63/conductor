@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2016 Netflix, Inc.
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,9 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-/**
- *
  */
 package com.netflix.conductor.client.http;
 
@@ -84,31 +81,29 @@ public class WorkflowClient extends ClientBase {
     //Metadata Operations
 
     /**
-     * Retrieve all workflow definitions
-     *
-     * @return List of all workflow definitions registered with the server
+     * @deprecated This API is deprecated and will be removed in the next version
+     * use {@link MetadataClient#getAllWorkflowDefs()} instead
      */
+    @Deprecated
     public List<WorkflowDef> getAllWorkflowDefs() {
         return getForEntity("metadata/workflow", null, workflowDefList);
     }
 
     /**
-     * Register a workflow definition with the server
-     *
-     * @param workflowDef the workflow definition
+     * @deprecated This API is deprecated and will be removed in the next version
+     * use {@link MetadataClient#registerWorkflowDef(WorkflowDef)} instead
      */
+    @Deprecated
     public void registerWorkflow(WorkflowDef workflowDef) {
         Preconditions.checkNotNull(workflowDef, "Worfklow definition cannot be null");
         postForEntity("metadata/workflow", workflowDef);
     }
 
     /**
-     * Retrieve the workflow definition
-     *
-     * @param name    the name of the workflow
-     * @param version the version of the workflow def
-     * @return Workflow definition for the given workflow and version
+     * @deprecated This API is deprecated and will be removed in the next version
+     * use {@link MetadataClient#getWorkflowDef(String, Integer)} instead
      */
+    @Deprecated
     public WorkflowDef getWorkflowDef(String name, Integer version) {
         Preconditions.checkArgument(StringUtils.isNotBlank(name), "name cannot be blank");
         return getForEntity("metadata/workflow/{name}", new Object[]{"version", version}, WorkflowDef.class, name);
