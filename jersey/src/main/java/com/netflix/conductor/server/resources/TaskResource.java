@@ -179,7 +179,7 @@ public class TaskResource {
 	@Path("/queue/{taskType}/{taskId}")
 	@ApiOperation("Remove Task from a Task type queue")
 	@Consumes({ MediaType.WILDCARD })
-	public void remvoeTaskFromQueue(@PathParam("taskType") String taskType, @PathParam("taskId") String taskId) throws Exception {
+	public void removeTaskFromQueue(@PathParam("taskType") String taskType, @PathParam("taskId") String taskId) throws Exception {
 		taskService.removeTaskfromQueue(taskType, taskId);
 	}
 
@@ -224,7 +224,7 @@ public class TaskResource {
 
 	@GET
 	@Path("/queue/polldata/all")
-	@ApiOperation("Get the last poll data for a given task type")
+	@ApiOperation("Get the last poll data for all task types")
 	@Consumes({ MediaType.WILDCARD })
 	public List<PollData> getAllPollData() throws Exception {
 		return taskService.getAllPollData();
